@@ -23,7 +23,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         self.searchTextField.delegate = self
         
         
-        // Bibek was here
+        // Create table data
+        var locations = [Location]()
+        let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
+        let rendeData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
+        locations.append(Location(name: "BCafe", data: bCafeData))
+        locations.append(Location(name: "Rendezvous", data: rendeData));
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

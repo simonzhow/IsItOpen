@@ -9,6 +9,9 @@
 import Foundation
 
 class LocationData {
-    var hours = [Int]()
+    var hours = String()
     
+    init (hours: String) {
+        self.hours = hours
+    }
 }
