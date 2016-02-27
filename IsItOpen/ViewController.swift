@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+    
+    let tableData = ["One","Two","Three","Twenty-One"]
+    var filteredTableData = [String]()
+    var resultSearchController = UISearchController()
     
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var tableView: UITableView!
@@ -17,10 +21,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            self.tableView.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
+            
+        
        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         self.searchTextField.delegate = self
+
         
         
         // Create table data
@@ -30,17 +47,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         locations.append(Location(name: "BCafe", data: bCafeData))
         locations.append(Location(name: "Rendezvous", data: rendeData));
         
+
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
 
+    
+    //Keyboard Functions
+
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         return true
     }
-    
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
@@ -49,8 +69,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     // Table View Functions
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
