@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var locations = [Location]()
     var filteredTableData = [String]()
@@ -20,17 +20,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.resultSearchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.sizeToFit()
-            
-            self.tableView.tableHeaderView = controller.searchBar
-            
-            return controller
-        })()
         
         
        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -74,14 +63,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 
         return locations.count
 
-//        if (self.resultSearchController.active)
-//        {
-//            return self.filteredTableData.count;
-//        }
-//        else
-//        {
-//            return self.tableData.count
-//        }
+
 
     }
     
