@@ -21,12 +21,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        //Navigation Controller
         
-        
-        //       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        //        view.addGestureRecognizer(tap)
-        
-        
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.BlackTranslucent
+        nav?.tintColor = UIColor.whiteColor()
+        nav?.topItem?.title = "Is it Open?"
+
         
         // Create table data
         let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
@@ -40,22 +42,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         tableView.tableHeaderView = searchController.searchBar
         
         
+        
+        
+        
     }
+    
+    
+    
+    
+    //Keyboard Funtions
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    //Keyboard Functions
-    
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        searchTextField.resignFirstResponder()
-//        return true
-//    }
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    
     
     // Table View Functions
     
@@ -66,11 +71,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
         tableView.reloadData()
     }
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 1 //only 1 section that we're searching for
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
             return filteredLocations.count
@@ -78,13 +81,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         return locations.count
     
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
-//        
-//        cell!.textLabel!.text = locations[indexPath.row].locationName;
-//        
-//        return cell!
+        
+        
+        //table view updates to match search container
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let area: Location
         if searchController.active && searchController.searchBar.text != "" {
@@ -95,7 +96,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         cell.textLabel?.text = area.locationName
         return cell
     }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GetResult" {
             if let destination = segue.destinationViewController as? OutputViewController {
