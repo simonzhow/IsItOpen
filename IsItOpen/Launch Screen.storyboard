@@ -23,7 +23,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_thumb_e29a52596f625215b68df077785d2654.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="O3w-U5-29X">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O3w-U5-29X">
                                 <rect key="frame" x="0.5" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
@@ -44,7 +44,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="big_thumb_e29a52596f625215b68df077785d2654.jpg" width="736" height="414"/>
-    </resources>
 </document>
