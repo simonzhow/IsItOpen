@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
-    let tableData = ["One","Two","Three","Twenty-One"]
+    var locations = [Location]()
     var filteredTableData = [String]()
     var resultSearchController = UISearchController()
     
@@ -31,17 +31,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             
             return controller
         })()
-            
+        
         
        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         self.searchTextField.delegate = self
-
-        
         
         // Create table data
-        var locations = [Location]()
         let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
         let rendeData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
         locations.append(Location(name: "BCafe", data: bCafeData))
@@ -74,13 +71,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return locations.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         
-        cell!.textLabel!.text = "Example"
+        cell!.textLabel!.text = locations[indexPath.row].locationName;
         
         return cell!
     }
