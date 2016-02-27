@@ -11,6 +11,9 @@ import UIKit
 class OutputViewController: UIViewController{
     
     
+    @IBOutlet var mainOutputLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
