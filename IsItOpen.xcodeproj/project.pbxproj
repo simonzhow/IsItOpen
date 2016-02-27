@@ -14,7 +14,6 @@
 		63C185F91C81859600DFC367 /* OutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C185F81C81859600DFC367 /* OutputViewController.swift */; };
 		63C185FB1C818F3200DFC367 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C185FA1C818F3200DFC367 /* Launch Screen.storyboard */; };
 		63EFC8CB1C81B85A002B69FE /* IsItOpen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63EFC8CA1C81B85A002B69FE /* IsItOpen.jpg */; };
-
 		A6DEBF2E1C81AB5C00F50241 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEBF2D1C81AB5C00F50241 /* Location.swift */; };
 		A6DEBF301C81AC3F00F50241 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEBF2F1C81AC3F00F50241 /* LocationData.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +108,7 @@
 				TargetAttributes = {
 					63C185E21C8183B800DFC367 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = RM633P225J;
 					};
 				};
 			};
@@ -256,9 +256,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IsItOpen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonzhou.IsItOpen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frackmen.IsItOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -267,9 +268,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IsItOpen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.simonzhou.IsItOpen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frackmen.IsItOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
