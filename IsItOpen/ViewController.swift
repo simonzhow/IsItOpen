@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,6 +17,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var tableView: UITableView!
+    
+    
+    // A hotel in Saigon with an attribution.
+    let placeID = "ChIJV4k8_9UodTERU5KXbkYpSYs"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +35,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
         // Create table data
         let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
-        let rendeData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
-        locations.append(Location(name: "BCafe", data: bCafeData))
-        locations.append(Location(name: "Rendezvous", data: rendeData));
-        
-        
+        let bPlateData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
+        locations.append(Location(name: "BCafe", data: bCafeData, id: "ChIJezN24o28woARcqiE5XHiRhc"))
+        locations.append(Location(name: "Bruin Plate", data: bPlateData, id: "ChIJNfeKbI68woAR8DEay8-K95M"));
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -73,12 +77,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         if segue.identifier == "GetResult" {
             if let destination = segue.destinationViewController as? OutputViewController {
                 if let index = tableView.indexPathForSelectedRow?.row {
-                    destination.yesOrNo = true
-                    destination.hours = locations[index].locationData.hours
+                    destination.locationID = locations[index].locationID
                 }
             }
         }
     }
+    
+    
     
 }
 

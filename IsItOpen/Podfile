@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+xcodeproj '/Users/Bibek/Documents/Developer/Hacktech/IsItOpen/IsItOpen.xcodeproj'
+
+use_frameworks!
+
+platform :ios, '9.2'
+pod 'GoogleMaps'

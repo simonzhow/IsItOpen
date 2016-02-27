@@ -29,8 +29,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours, etc." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9p-V6-IbF">
-                                <rect key="frame" x="150" y="222" width="300" height="180"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours, etc." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9p-V6-IbF">
+                                <rect key="frame" x="60" y="222" width="480" height="180"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                             <constraint firstItem="56J-2U-2xE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SFJ-9h-3WW"/>
                             <constraint firstItem="K9p-V6-IbF" firstAttribute="top" secondItem="56J-2U-2xE" secondAttribute="bottom" id="YXk-qw-JyQ"/>
                             <constraint firstItem="K9p-V6-IbF" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="aLH-Qb-GkZ"/>
-                            <constraint firstItem="K9p-V6-IbF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="at3-KN-nEI"/>
+                            <constraint firstItem="K9p-V6-IbF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="at3-KN-nEI"/>
                             <constraint firstItem="56J-2U-2xE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="cgM-La-5jo"/>
                             <constraint firstItem="K9p-V6-IbF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xEC-vX-KAu"/>
                         </constraints>
