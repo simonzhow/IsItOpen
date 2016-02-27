@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mJt-Qc-XeB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mJt-Qc-XeB">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -74,14 +74,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Fy-1O-k8e">
-                                <rect key="frame" x="0.0" y="180" width="600" height="420"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="0hm-Zi-yW2">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0hm-Zi-yW2" id="v9h-0Y-DY6">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -94,38 +94,17 @@
                                     <outlet property="delegate" destination="alK-CQ-CbF" id="rLj-JS-XJc"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESX-IO-5BB">
-                                <rect key="frame" x="0.0" y="64" width="600" height="116"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAE-8Z-esa">
-                                        <rect key="frame" x="210" y="43" width="180" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="kAE-8Z-esa" firstAttribute="centerY" secondItem="ESX-IO-5BB" secondAttribute="centerY" id="J9I-Eu-hgm"/>
-                                    <constraint firstItem="kAE-8Z-esa" firstAttribute="width" secondItem="ESX-IO-5BB" secondAttribute="width" multiplier="0.3" id="WMR-DH-FkA"/>
-                                    <constraint firstItem="kAE-8Z-esa" firstAttribute="centerX" secondItem="ESX-IO-5BB" secondAttribute="centerX" id="l8Z-DY-hJm"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OJ4-8E-1YI" firstAttribute="top" secondItem="7Fy-1O-k8e" secondAttribute="bottom" id="3pw-Ny-V0n"/>
-                            <constraint firstItem="ESX-IO-5BB" firstAttribute="top" secondItem="r2m-nj-h91" secondAttribute="bottom" id="Aau-Mt-isA"/>
-                            <constraint firstItem="7Fy-1O-k8e" firstAttribute="height" secondItem="FCY-7b-xSS" secondAttribute="height" multiplier="0.7" id="FYd-Lt-7sO"/>
+                            <constraint firstItem="7Fy-1O-k8e" firstAttribute="height" secondItem="FCY-7b-xSS" secondAttribute="height" id="FYd-Lt-7sO"/>
                             <constraint firstItem="7Fy-1O-k8e" firstAttribute="centerX" secondItem="FCY-7b-xSS" secondAttribute="centerX" id="MOx-3u-nQh"/>
-                            <constraint firstItem="ESX-IO-5BB" firstAttribute="centerX" secondItem="FCY-7b-xSS" secondAttribute="centerX" id="PIb-5Q-XJa"/>
-                            <constraint firstItem="7Fy-1O-k8e" firstAttribute="top" secondItem="ESX-IO-5BB" secondAttribute="bottom" id="XVW-vt-GGZ"/>
                             <constraint firstItem="7Fy-1O-k8e" firstAttribute="width" secondItem="FCY-7b-xSS" secondAttribute="width" id="Xol-wR-GWl"/>
-                            <constraint firstItem="ESX-IO-5BB" firstAttribute="width" secondItem="FCY-7b-xSS" secondAttribute="width" id="v0h-pd-4mT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0if-DY-4uT"/>
                     <connections>
-                        <outlet property="searchTextField" destination="kAE-8Z-esa" id="QPM-9d-0nb"/>
                         <outlet property="tableView" destination="7Fy-1O-k8e" id="oZn-Zq-4FT"/>
                     </connections>
                 </viewController>
@@ -141,6 +120,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KxW-z5-kyL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="25"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
