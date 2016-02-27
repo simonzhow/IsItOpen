@@ -22,8 +22,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
         
         
-       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
+//       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//        view.addGestureRecognizer(tap)
         
         self.searchTextField.delegate = self
         
@@ -40,7 +40,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         self.view.endEditing(true)
     }
 
-    
     //Keyboard Functions
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -51,7 +50,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
     
     // Table View Functions
     
@@ -60,11 +58,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return locations.count
-
-
-
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -74,7 +68,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
         return cell!
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "GetResult" {
+            if let destination = segue.destinationViewController as? OutputViewController {
+                destination.yesOrNo = true
+                destination.hours = "abc"
+            }
+        }
+    }
 
 }
 
