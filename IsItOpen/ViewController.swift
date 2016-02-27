@@ -21,6 +21,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         view.addGestureRecognizer(tap)
         
         self.searchTextField.delegate = self
+        
+        
+        // Bibek was here
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -41,11 +44,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     // Table View Functions
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return 1;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         
+        cell!.textLabel!.text = "Example"
+        
+        return cell!
     }
 
 
