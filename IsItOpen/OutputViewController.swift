@@ -15,15 +15,21 @@ class OutputViewController: UIViewController{
     var hours: String?
     
     @IBOutlet var mainOutputLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if yesOrNo! {
+            mainOutputLabel.text = "Yes"
+        } else {
+            mainOutputLabel.text = "No"
+        }
+        
+        detailsLabel.text = hours
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        mainOutputLabel.text = hours
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -22,8 +22,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
         
         
-//       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-//        view.addGestureRecognizer(tap)
+        //       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        //        view.addGestureRecognizer(tap)
         
         self.searchTextField.delegate = self
         
@@ -33,15 +33,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         locations.append(Location(name: "BCafe", data: bCafeData))
         locations.append(Location(name: "Rendezvous", data: rendeData));
         
-
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
     //Keyboard Functions
-
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         return true
@@ -72,11 +72,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GetResult" {
             if let destination = segue.destinationViewController as? OutputViewController {
-                destination.yesOrNo = true
-                destination.hours = "abc"
+                if let index = tableView.indexPathForSelectedRow?.row {
+                    destination.yesOrNo = true
+                    destination.hours = locations[index].locationData.hours
+                }
             }
         }
     }
-
+    
 }
 
