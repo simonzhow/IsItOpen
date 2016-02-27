@@ -71,7 +71,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return locations.count
+
+//        if (self.resultSearchController.active)
+//        {
+//            return self.filteredTableData.count;
+//        }
+//        else
+//        {
+//            return self.tableData.count
+//        }
+
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
