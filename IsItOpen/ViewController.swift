@@ -10,11 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var locations = [Location]()
-    var filteredTableData = [String]()
+    let searchController = UISearchController(searchResultsController: nil) // nil tells table view that you want it to display output at same location
+    var locations = [Location]() // Array used to be filtered in the search navigation
+    var filteredLocations = [Location]()
+    
     var resultSearchController = UISearchController()
     
-    @IBOutlet var searchTextField: UITextField!
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,13 +26,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         //       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         //        view.addGestureRecognizer(tap)
         
-        self.searchTextField.delegate = self
+        
         
         // Create table data
         let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
         let rendeData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
         locations.append(Location(name: "BCafe", data: bCafeData))
         locations.append(Location(name: "Rendezvous", data: rendeData));
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
         
     }
@@ -42,10 +48,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     //Keyboard Functions
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        searchTextField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        searchTextField.resignFirstResponder()
+//        return true
+//    }
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
@@ -53,20 +59,41 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     // Table View Functions
     
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredLocations = locations.filter { locations in
+            return locations.locationName.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredLocations.count
+        }
         return locations.count
+    
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
-        
-        cell!.textLabel!.text = locations[indexPath.row].locationName;
-        
-        return cell!
+//        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+//        
+//        cell!.textLabel!.text = locations[indexPath.row].locationName;
+//        
+//        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let area: Location
+        if searchController.active && searchController.searchBar.text != "" {
+            area = filteredLocations[indexPath.row]
+        } else {
+            area = locations[indexPath.row]
+        }
+        cell.textLabel?.text = area.locationName
+        return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -80,5 +107,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         }
     }
     
+}
+
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }
 
