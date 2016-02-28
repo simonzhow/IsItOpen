@@ -10,10 +10,12 @@ import Foundation
 
 class Location {
     var locationName: String
+    var locationID: String
     var locationData: LocationData
     
-    init (name: String, data: LocationData) {
+    init (name: String, data: LocationData, id: String) {
         locationName = name
         locationData = data
+        locationID = id
     }
 }

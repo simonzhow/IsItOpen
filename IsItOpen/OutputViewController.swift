@@ -7,32 +7,57 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class OutputViewController: UIViewController{
     
-    
-    var yesOrNo: Bool?
-    var hours: String?
+    var locationID: String?
     
     @IBOutlet var mainOutputLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     
+    var placesClient: GMSPlacesClient?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        placesClient = GMSPlacesClient()
+        mainOutputLabel.text = ""
+        detailsLabel.text = ""
         
-        if yesOrNo! {
-            mainOutputLabel.text = "Yes"
-        } else {
-            mainOutputLabel.text = "No"
-        }
-        
-        detailsLabel.text = hours
+        getCurrentPlace()
     }
-
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    func getCurrentPlace() {
+        
+        let placeID = locationID
+        
+        placesClient!.lookUpPlaceID(placeID!, callback: { (place: GMSPlace?, error: NSError?) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let place = place {
+                let openNow = place.openNowStatus
+                if (openNow == GMSPlacesOpenNowStatus.Yes) {
+                    self.mainOutputLabel.text = "Yes"
+                } else if (openNow == GMSPlacesOpenNowStatus.No) {
+                    self.mainOutputLabel.text = "No"
+                } else {
+                    self.mainOutputLabel.text = "Unknown"
+                }
+                
+                self.detailsLabel.text = place.name.componentsSeparatedByString(", ").joinWithSeparator("\n")
+            } else {
+                print("No place details for \(placeID)")
+            }
+        })
+        
+}
+
+
+override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+}
 }
