@@ -34,24 +34,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         nav?.barStyle = UIBarStyle.BlackTranslucent
         nav?.tintColor = UIColor.whiteColor()
         nav?.topItem?.title = "Is it Open?"
-
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
-        
-        
-        
+
         let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
         let bPlateData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
         locations.append(Location(name: "BCafe", data: bCafeData, id: "ChIJezN24o28woARcqiE5XHiRhc"))
         locations.append(Location(name: "Bruin Plate", data: bPlateData, id: "ChIJNfeKbI68woAR8DEay8-K95M"));
     }
-    
-    
-    
     
     //Keyboard Funtions
     
@@ -62,8 +55,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
-    
     
     // Table View Functions
     
