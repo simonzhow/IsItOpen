@@ -11,11 +11,13 @@ import Foundation
 class Location {
     var locationName: String
     var locationID: String
-    var locationData: LocationData
+    var locationHours: String
+    var locationOpenStatus: Bool
     
-    init (name: String, data: LocationData, id: String) {
+    init (name: String, hours: String, open: Bool, id: String) {
         locationName = name
-        locationData = data
         locationID = id
+        locationHours = hours
+        locationOpenStatus = open
     }
 }

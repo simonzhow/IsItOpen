@@ -19,11 +19,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     @IBOutlet var tableView: UITableView!
     
-    
-    // A hotel in Saigon with an attribution.
-    let placeID = "ChIJV4k8_9UodTERU5KXbkYpSYs"
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,10 +35,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
 
-        let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
-        let bPlateData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
-        locations.append(Location(name: "BCafe", data: bCafeData, id: "ChIJezN24o28woARcqiE5XHiRhc"))
-        locations.append(Location(name: "Bruin Plate", data: bPlateData, id: "ChIJNfeKbI68woAR8DEay8-K95M"));
+        locations.append(Location(name: "Bruin Café", hours: "Mon: 6:00AM - 2:00AM", open: true, id: "ChIJezN24o28woARcqiE5XHiRhc"))
+        locations.append(Location(name: "Bruin Plate", hours: "Mon: 8:00AM - 9:00AM, 1:30PM - 8:00PM", open: false, id: "ChIJNfeKbI68woAR8DEay8-K95M"))
+        locations.append(Location(name: "Covel Dining", hours: "Mon: 8:00AM - 9:00PM", open: true, id: "ChIJezN24o28woARcqiE5XHiRhc"))
+        locations.append(Location(name: "De Neve Dining", hours: "Mon: 8:00AM - 9:00PM", open: true, id: "ChIJNfeKbI68woAR8DEay8-K95M"))
+        locations.append(Location(name: "Rendézvous", hours: "Mon: 8:00AM - 12:00AM", open: true, id: "ChIJezN24o28woARcqiE5XHiRhc"))
+        locations.append(Location(name: "Café 1919", hours: "Mon: 8:00AM - 11:00PM", open: true, id: "ChIJNfeKbI68woAR8DEay8-K95M"))
     }
     
     //Keyboard Funtions
@@ -95,6 +92,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             if let destination = segue.destinationViewController as? OutputViewController {
                 if let index = tableView.indexPathForSelectedRow?.row {
                     destination.locationID = locations[index].locationID
+                    destination.isItOpen = locations[index].locationOpenStatus
+                    destination.locationHours = locations[index].locationHours
                 }
             }
         }

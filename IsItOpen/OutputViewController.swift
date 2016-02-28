@@ -11,7 +11,9 @@ import GoogleMaps
 
 class OutputViewController: UIViewController{
     
+    var locationHours: String?
     var locationID: String?
+    var isItOpen: Bool?
     
     @IBOutlet var mainOutputLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
@@ -21,10 +23,14 @@ class OutputViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         placesClient = GMSPlacesClient()
-        mainOutputLabel.text = ""
-        detailsLabel.text = ""
+        if (isItOpen!) {
+            mainOutputLabel.text = "Yes"
+        } else {
+            mainOutputLabel.text = "No"
+        }
+        detailsLabel.text = "Hours: " + locationHours!
         
-        getCurrentPlace()
+//        getCurrentPlace()
     }
     
     func getCurrentPlace() {
@@ -38,14 +44,14 @@ class OutputViewController: UIViewController{
             }
             
             if let place = place {
-                let openNow = place.openNowStatus
-                if (openNow == GMSPlacesOpenNowStatus.Yes) {
-                    self.mainOutputLabel.text = "Yes"
-                } else if (openNow == GMSPlacesOpenNowStatus.No) {
-                    self.mainOutputLabel.text = "No"
-                } else {
-                    self.mainOutputLabel.text = "Unknown"
-                }
+//                let openNow = place.openNowStatus
+//                if (openNow == GMSPlacesOpenNowStatus.Yes) {
+//                    self.mainOutputLabel.text = "Yes"
+//                } else if (openNow == GMSPlacesOpenNowStatus.No) {
+//                    self.mainOutputLabel.text = "No"
+//                } else {
+//                    self.mainOutputLabel.text = "Unknown"
+//                }
                 
                 self.detailsLabel.text = place.name.componentsSeparatedByString(", ").joinWithSeparator("\n")
             } else {
