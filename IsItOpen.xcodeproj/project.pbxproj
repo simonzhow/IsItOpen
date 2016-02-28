@@ -14,10 +14,7 @@
 		63C185F91C81859600DFC367 /* OutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C185F81C81859600DFC367 /* OutputViewController.swift */; };
 		63C185FB1C818F3200DFC367 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C185FA1C818F3200DFC367 /* Launch Screen.storyboard */; };
 		63EFC8CB1C81B85A002B69FE /* IsItOpen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63EFC8CA1C81B85A002B69FE /* IsItOpen.jpg */; };
-<<<<<<< HEAD
-=======
 		929A98AC5006A85C25B023C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F235B641CC2A46C5826880B6 /* Pods.framework */; };
->>>>>>> Google-Places-API
 		A6DEBF2E1C81AB5C00F50241 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEBF2D1C81AB5C00F50241 /* Location.swift */; };
 		A6DEBF301C81AC3F00F50241 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEBF2F1C81AC3F00F50241 /* LocationData.swift */; };
 		A6DEBF341C82548000F50241 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A6DEBF331C82548000F50241 /* Podfile */; };
@@ -341,11 +338,8 @@
 			baseConfigurationReference = D8A4BA70D3E444361EAB0486 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-=======
 				CLANG_ENABLE_MODULES = YES;
->>>>>>> Google-Places-API
 				INFOPLIST_FILE = IsItOpen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frackmen.IsItOpen;
@@ -360,11 +354,8 @@
 			baseConfigurationReference = 8D0E46BD81A3AE7360E12A9F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-=======
 				CLANG_ENABLE_MODULES = YES;
->>>>>>> Google-Places-API
 				INFOPLIST_FILE = IsItOpen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frackmen.IsItOpen;
