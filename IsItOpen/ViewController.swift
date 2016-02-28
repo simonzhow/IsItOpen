@@ -36,13 +36,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         nav?.topItem?.title = "Is it Open?"
 
         
-        // Create table data
-        let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
-<<<<<<< HEAD
-        let rendeData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
-        locations.append(Location(name: "BCafe", data: bCafeData))
-        locations.append(Location(name: "Rendezvous", data: rendeData));
-        
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -51,12 +44,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
         
         
-        
-=======
+        let bCafeData = LocationData(hours: "Mon: 6:00AM - 2:00AM")
         let bPlateData = LocationData(hours: "Mon: 8:00AM - 10:00PM")
         locations.append(Location(name: "BCafe", data: bCafeData, id: "ChIJezN24o28woARcqiE5XHiRhc"))
         locations.append(Location(name: "Bruin Plate", data: bPlateData, id: "ChIJNfeKbI68woAR8DEay8-K95M"));
->>>>>>> Google-Places-API
     }
     
     
